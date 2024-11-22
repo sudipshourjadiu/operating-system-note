@@ -1,7 +1,5 @@
 ### Operating System Lab Note
 
-Here is a note of operating systems course
-
 ---
 
 ### 1. **Linux File Commands**
