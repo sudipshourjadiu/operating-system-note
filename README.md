@@ -46,7 +46,8 @@
 - **`chmod` Syntax**: `chmod [who][operation][permissions] file`  
   - **Who**: `u` (user), `g` (group), `o` (others), `a` (all).  
   - **Operation**: `+` (add), `-` (remove), `=` (set exact).  
-  - **Permissions**: `r` (read), `w` (write), `x` (execute).  
+  - **Permissions**: `r` (read), `w` (write), `x` (execute).
+  - 7 = rwx, 5 = r-x, 4 = r--
 
 #### Examples:
 ```bash
