@@ -268,6 +268,38 @@ def sjf(processes, burst_times):
 
 ---
 
+### **Deadlock Detection and Avoidance**
+
+#### **1. Detection**  
+- Use a **Resource Allocation Graph (RAG)**.  
+- Detect cycles in the graph:  
+  - If cycles exist → Possible deadlock.  
+
+#### **2. Avoidance (Banker’s Algorithm)**  
+- Determine **safe state**:  
+  - A system is in a safe state if all processes can complete in some order.  
+
+##### **Steps**:  
+1. **Calculate Need**: `Need = Max - Allocation`.  
+2. **Check Feasibility**:  
+   - Ensure `Need <= Available`.  
+3. **Simulate Allocation**:  
+   - If feasible, allocate temporarily and move to the next process.  
+4. **Repeat**: If all processes complete, the state is safe.  
+
+##### **Example Table**  
+
+| Process | Max | Allocation | Need | Available |  
+|---------|-----|------------|------|-----------|  
+| P1      | 7   | 3          | 4    | 3         |  
+| P2      | 4   | 1          | 3    |           |  
+
+1. Check P1: `Need (4) <= Available (3)` → False.  
+2. Check P2: `Need (3) <= Available (3)` → True → Allocate.  
+3. Add allocation of P2 to `Available`.
+
+---
+
 ### 9. **Page Replacement Algorithms**  
 ### **Page Replacement Algorithms**  
 
@@ -320,34 +352,4 @@ Frames: 3
 | 5    | 2, 3, 4 | Replace page 1   | Yes         |
 | 6    | 3, 4, 2 | Replace page 2   | Yes         |
 
----
 
-### **Deadlock Detection and Avoidance**
-
-#### **1. Detection**  
-- Use a **Resource Allocation Graph (RAG)**.  
-- Detect cycles in the graph:  
-  - If cycles exist → Possible deadlock.  
-
-#### **2. Avoidance (Banker’s Algorithm)**  
-- Determine **safe state**:  
-  - A system is in a safe state if all processes can complete in some order.  
-
-##### **Steps**:  
-1. **Calculate Need**: `Need = Max - Allocation`.  
-2. **Check Feasibility**:  
-   - Ensure `Need <= Available`.  
-3. **Simulate Allocation**:  
-   - If feasible, allocate temporarily and move to the next process.  
-4. **Repeat**: If all processes complete, the state is safe.  
-
-##### **Example Table**  
-
-| Process | Max | Allocation | Need | Available |  
-|---------|-----|------------|------|-----------|  
-| P1      | 7   | 3          | 4    | 3         |  
-| P2      | 4   | 1          | 3    |           |  
-
-1. Check P1: `Need (4) <= Available (3)` → False.  
-2. Check P2: `Need (3) <= Available (3)` → True → Allocate.  
-3. Add allocation of P2 to `Available`.  
